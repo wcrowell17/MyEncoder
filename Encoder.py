@@ -11,25 +11,31 @@ if the characters are greater than 10, return only the last digit.
 
 
 def encode(password):
+    encode = ''
     for char in password:
-        char = int(char)
-        char += 3
-        if char >= 10:
-            char = str(char)
-            char = char[-1]
-        else:
-            char = str(char)
+        char = str((int(char) + 3) % 10)
+        encode = encode + char
 
-        return char
-
-
-encode("12345678")
+    return encode
 
 def main():
-    print("Menu")
-    print("-------------")
-    print("1. Encode")
-    print("2. Decode")
-    print("3. Quit")
-    input()
-    if
+    while True:
+        print("Menu")
+        print("-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit \n")
+        menu_select = input("Please enter an option:")
+
+        if menu_select == '1':
+            print("Please enter your password to encode:", end="")
+            encode(input())
+            print("Your password has been encoded and stored!")
+        elif menu_select == '2':
+            pass # decode method here
+        elif menu_select == '3':
+            return
+
+
+if __name__ == "__main__":
+    main()
