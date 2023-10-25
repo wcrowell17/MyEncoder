@@ -18,6 +18,13 @@ def encode(password):
 
     return encode
 
+def decode(password):
+    # Zachary Novak made this one :)
+    result = ''
+    for i in password:
+        result += str((int(i)-3) if (int(i) > 2) else (int(i)+7))
+    return result
+
 def main():
     while True:
         print("Menu")
@@ -32,7 +39,8 @@ def main():
             encode(input())
             print("Your password has been encoded and stored!")
         elif menu_select == '2':
-            pass # decode method here
+            decoded_password = decode(input())
+            print(f'Your decoded password is: {decoded_password}')
         elif menu_select == '3':
             return
 
