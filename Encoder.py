@@ -36,13 +36,12 @@ def main():
 
         if menu_select == '1':
             print("Please enter your password to encode:", end="")
-            encode(input())
+            encoded_password = encode(input())
             print("Your password has been encoded and stored!")
         elif menu_select == '2':
-            decoded_password = decode(input())
-            print(f'Your decoded password is: {decoded_password}')
+            print(f'The encoded password is {encoded_password}, and the original password is {decode(encoded_password)}.')
         elif menu_select == '3':
-            return
+            break
 
 
 if __name__ == "__main__":
